@@ -35,8 +35,8 @@ import {
   go,
 } from "./UI";
 export async function uploadFile(file, purpose) {
-  if (!file || file.size > 5 * 1024 * 1024)
-    throw new Error("Choose a PDF, JPEG or PNG file up to 5 MB.");
+  if (!file || file.size > 2 * 1024 * 1024)
+    throw new Error("Choose a PDF, JPEG or PNG file up to 2 MB.");
   const data = await new Promise((resolve, reject) => {
     const r = new FileReader();
     r.onload = () => resolve(r.result.split(",")[1]);
@@ -1214,7 +1214,7 @@ export function PatientArea({
               <Field label="Delivery address">
                 <textarea name="address" maxLength={1500} />
               </Field>
-              <Field label="Upload prescription (PDF, JPEG or PNG, up to 5 MB)">
+              <Field label="Upload prescription (PDF, JPEG or PNG, up to 2 MB)">
                 <input
                   name="prescription"
                   type="file"
